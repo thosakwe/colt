@@ -1,0 +1,30 @@
+// Annotations allow you to set static metadata.
+@doctype(html)
+
+// Functions allow you to split your UI into reusable components.
+//
+// Return types and parameter types are optional, but can be helpful.
+Node main(String title) {
+    // HTML AST's are regarded as expressions.
+    //
+    return html {
+        head {
+            // Here's a <title> element, with its innerText set to
+            // our `title` parameter.
+            title > title
+        }
+
+        body {
+            // Commas are optional between child nodes
+            h1 > title,
+
+            // You can call a function to embed a child node.
+            //
+            // Functions are hoisted, and thus can be called in any order.
+            pageContent()
+        }
+    };
+}
+
+// Arrow functions are a thing. Semi-colon optional.
+Element pageContent() => p > "Hello, world!";

@@ -1,0 +1,12 @@
+name: colt
+version: 0.0.0
+description: An elegant, functional templating engine for Dart.
+author: Tobe O <thosakwe@gmail.com>
+homepage: https://github.com/thosakwe/colt.git
+dependencies:
+  code_builder: ^1.0.0
+  compiler_tools: ^1.0.0-dev
+  html_builder: ^1.0.0
+  recase: ^1.0.0
+dev_dependencies:
+  test: ^0.12.0

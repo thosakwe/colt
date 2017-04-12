@@ -1,0 +1,22 @@
+// Pseudo-code: WILL NOT COMPILE!
+Element controlFlow() {
+    if (condition) {
+        return foo;
+    } else if (otherCondition) {
+        return bar;
+    } else {
+        return baz;
+    }
+}
+
+// Loops don't exist in Colt, but there is an `each`
+// construct that approximates it.
+//
+// `each` should be immediately followed by an expression. 
+// Whitespace is ignored.
+Element loop() {
+    return ul {
+        each (item in items)
+            li > item.text;
+    };
+}
