@@ -2,6 +2,7 @@ import 'package:colt/src/language/scan.dart';
 import 'package:colt/src/language/token_type.dart';
 import 'package:compiler_tools/compiler_tools.dart';
 import 'package:matcher/matcher.dart';
+export 'package:colt/src/language/scan.dart';
 export 'package:colt/src/language/token_type.dart';
 
 Matcher equalsScanned(Iterable<TokenType> expected) =>

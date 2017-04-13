@@ -54,7 +54,10 @@ class Scanner {
   void flush(SpanScanner scanner) {
     if (_invalidState != null) {
       var span = scanner.spanFrom(_invalidState);
-      tokens.add(new Token(TokenType.INVALID, span: span));
+      var token = new Token(TokenType.INVALID, span: span);
+      tokens.add(token);
+      errors.add(new SyntaxError('Invalid input "${span.text}".',
+          offendingToken: token));
       _invalidState = null;
     }
   }
@@ -73,7 +76,8 @@ class Scanner {
             potential.add(new Token(v, span: scanner.lastSpan));
         });
 
-        if (_PATTERNS.isEmpty) {
+        if (potential.isEmpty) {
+          if (_invalidState == null) _invalidState = scanner.state;
           scanner.readChar();
         } else {
           flush(scanner);
@@ -84,5 +88,7 @@ class Scanner {
         }
       }
     }
+
+    flush(scanner);
   }
 }

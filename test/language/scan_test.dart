@@ -17,4 +17,12 @@ main() {
     });
   });
 
+  group('syntax errors', () {
+    test('invalid character', () {
+      var scanner = new Scanner();
+      scanner.scan('"Percent sign unrecognized..." %');
+      print(scanner.errors);
+      expect(scanner.errors, isNotEmpty);
+    });
+  });
 }
