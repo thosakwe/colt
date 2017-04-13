@@ -25,4 +25,6 @@ class TemplateContext {
 
     return lib..addMember(clazz);
   }
+
+  String compileToString() => prettyToSource(compile().buildAst());
 }
